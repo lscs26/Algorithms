@@ -12,7 +12,7 @@ def eating_cookies(n, cache=None):
     return 1
   # else:
   #   return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
-  elif cache and n in cache:
+  elif cache and cache[n] > 0:
     return cache[n]
     # print(cache)
     # running 'python3 eating_cookies/eating_cookies.py 7' should return
