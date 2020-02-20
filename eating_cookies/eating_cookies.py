@@ -12,13 +12,17 @@ def eating_cookies(n, cache=None):
     return 1
   # else:
   #   return eating_cookies(n-1) + eating_cookies(n-2) + eating_cookies(n-3)
-  elif cache and cache[n] > 0:
+  elif cache and n in cache:
     return cache[n]
+    # print(cache)
+    # running 'python3 eating_cookies/eating_cookies.py 7' should return
+    # 'There are 44 ways for Cookie Monster to eat 7 cookies.'
   else:
-    if not cache:
-      cache = {i: 0 for i in range(n+1)}
+    if cache is None:
+      cache = {}
     value = eating_cookies(n-1, cache) + eating_cookies(n-2, cache) + eating_cookies(n-3, cache)
     cache[n] = value
+    # print("after adding value, cache is: " + str(cache))
     return value
     
 
